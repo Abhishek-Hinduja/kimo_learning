@@ -1,23 +1,19 @@
-// Creating Constructor
-// Creating an object with the help of function
+var handlingform = document.getElementById("handlingform")
+var inputField1 = document.getElementById("inputField1")
+var inputField2 = document.getElementById("inputField2")
+var resultField = document.getElementById("resultField")
 
-function Student(firstname,lastname,age){
-    this.name = firstname,
-    this.lastname = lastname,
-    this.age = age,
-    this.greet = function(){
-        return "Welcome " + this.name + " "
+
+handlingform.addEventListener("submit", function(e){
+    if (!inputField1.value && !inputField2.value){
+        alert("Please type value")
+        
     }
-}
-
-Students = []
-Students.push(new Student("Rahul","Vats",15))
-Students.push(new Student("Manik","Vats",15))
-Students.push(new Student("Deepak","Vats",15))
-Students.push(new Student("Angrej","Vats",15))
-
-for (var i = 0; i<Students.length; i++){
-    func = Students[i]
-    console.log(func.greet())
-}
+    else{
+        var result = inputField1.value/inputField2.value
+        result = result * 100
+        resultField.innerText = result + "%"
+        e.preventDefault()
+    }
+})
 
